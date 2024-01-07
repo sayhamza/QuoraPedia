@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# QuoraPedia
-QuoraPedia is a social network web application developed using MERN tech stack.
-=======
+
+# QuoraPedia is a social network web application developed using MERN tech stack.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
