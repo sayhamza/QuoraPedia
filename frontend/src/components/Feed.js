@@ -18,17 +18,12 @@ function Feed() {
       });
   }, []);
   return (
-    <div className="feed">
+      <div className="feed">
       <QuoraBox />
       {posts.map((post, index) => (
         <Post key={index} post={post} />
       ))}
-      {/* <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post /> */}
-    </div>
+      </div>
   );
 }
 

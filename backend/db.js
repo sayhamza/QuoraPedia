@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
-const url =
-  "mongodb+srv://SocialApp:SocialApp@socialdb.kmkybsp.mongodb.net/SocialDB?retryWrites=true&w=majority";
+const url = "mongodb+srv://SocialApp:SocialApp@socialdb.kmkybsp.mongodb.net/QuoraDB?retryWrites=true&w=majority";
 
 module.exports.connect = () => {
   mongoose

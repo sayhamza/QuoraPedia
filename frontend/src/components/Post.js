@@ -3,9 +3,7 @@ import {
   ArrowDownwardOutlined,
   ArrowUpwardOutlined,
   ChatBubbleOutlined,
-  MoreHorizOutlined,
-  RepeatOneOutlined,
-  ShareOutlined,
+
 } from "@material-ui/icons";
 import React, { useState } from "react";
 import "./css/Post.css";
@@ -13,17 +11,18 @@ import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
 import CloseIcon from "@material-ui/icons/Close";
 import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 import ReactTimeAgo from "react-time-ago";
 import axios from "axios";
 import ReactHtmlParser from "html-react-parser";
 import { useSelector } from "react-redux";
 import { selectUser } from "../feature/userSlice";
 
-import 'react-quill/dist/react-quill.min.js';
- 
 function LastSeen({ date }) {
   return (
-    <div>
+
+     //react-timeago
+    <div>  
       <ReactTimeAgo date={date} locale="en-US" timeStyle="round" />
     </div>
   );
@@ -99,7 +98,7 @@ function Post({ post }) {
                 height: "auto",
               },
             }}
-          >
+          > 
             <div className="modal__question">
               <h1>{post?.questionName}</h1>
               <p>
@@ -132,12 +131,7 @@ function Post({ post }) {
         <div className="post__footerAction">
           <ArrowUpwardOutlined />
           <ArrowDownwardOutlined />
-        </div>
-        <RepeatOneOutlined />
-        <ChatBubbleOutlined />
-        <div className="post__footerLeft">
-          <ShareOutlined />
-          <MoreHorizOutlined />
+          <ChatBubbleOutlined />
         </div>
       </div>
       <p

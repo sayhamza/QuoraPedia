@@ -28,6 +28,8 @@ function QuoraHeader() {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
 
+
+  //Handels Add question
   const handleSubmit = async () => {
     if (question !== "") {
       const config = {
@@ -40,6 +42,8 @@ function QuoraHeader() {
         questionUrl: inputUrl,
         user: user,
       };
+
+      // USE of Axios 
       await axios
         .post("/api/questions", body, config)
         .then((res) => {

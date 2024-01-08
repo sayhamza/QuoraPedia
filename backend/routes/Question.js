@@ -2,8 +2,10 @@ const express = require("express");
 const router = express.Router();
 
 const questionDB = require("../models/Question");
+const { post } = require("./Question");
 
 router.post("/", async (req, res) => {
+  
   console.log(req.body);
 
   try {
@@ -11,16 +13,22 @@ router.post("/", async (req, res) => {
       .create({
         questionName: req.body.questionName,
         questionUrl: req.body.questionUrl,
+        //question ID
+        questId:req.body.questId,
         user: req.body.user,
+        questionLike: {},
+        questionDislike: {},
+        questionComment: []
+
       })
       .then(() => {
-        res.status(201).send({
+        res.status(202).send({
           status: true,
           message: "Question added successfully",
         });
       })
       .catch((err) => {
-        res.status(400).send({
+        res.status(402).send({
           staus: false,
           message: "Bad format",
         });
@@ -32,6 +40,9 @@ router.post("/", async (req, res) => {
     });
   }
 });
+
+
+//Pipelining MONGODB aggregation
 
 router.get("/", async (req, res) => {
   try {
@@ -63,5 +74,22 @@ router.get("/", async (req, res) => {
     });
   }
 });
+
+//Update likes
+router.put("/questionLike", async (req, res) => {
+  post.findByIdAndUpdate(req.body.questId, {
+    $push:{questionLike:req.body._id}
+  })
+
+
+})
+
+
+
+
+
+
+
+
 
 module.exports = router;
